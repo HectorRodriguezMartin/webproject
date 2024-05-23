@@ -1,0 +1,73 @@
+GET http://localhost:4000/movies
+
+###
+
+POST http://localhost:4000/movies
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhlY3RvcjEyM0BnbWFpbC5jb20iLCJfaWQiOiI2NjQ4ZjliMzc4NTdlYTk0OTFmOGM0M2YiLCJyb2xlIjoidXNlciIsImlhdCI6MTcxNjExOTcxMH0.cXvM6yRPWqNl2RU7_24nDLjCiX-nra5oGUOEyzl8Ebw
+
+{
+    "title": "Pajaros",
+    "director": "Héctor Rodríguez Martín",
+    "year": 2017,
+    "country": "Spain",
+    "duration": 18,
+    "genre": "suspense"
+}
+
+###
+
+GET http://localhost:4000/movies/6638975c7819f335c6a69b9d
+
+###
+
+DELETE http://localhost:4000/movies/6649e8ccdf0f2d8a5733ae2b
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhlY3RvcjEyM0BnbWFpbC5jb20iLCJfaWQiOiI2NjQ4ZjliMzc4NTdlYTk0OTFmOGM0M2YiLCJyb2xlIjoidXNlciIsImlhdCI6MTcxNjExOTcxMH0.cXvM6yRPWqNl2RU7_24nDLjCiX-nra5oGUOEyzl8Ebw
+
+###
+PUT http://localhost:4000/movies/662e298d205c3eff04a8f8c9
+Content-Type: application/json
+
+{
+    "title": "Candelae",
+    "year": "2022"
+}
+
+###
+
+POST http://localhost:4000/rentals
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXJAZ21haWwuY29tIiwiX2lkIjoiNjY0Y2QxODUyODQ0NGQ3NGM3MmM2OGIxIiwicm9sZSI6InVzZXIiLCJpYXQiOjE3MTYzMTA0MjJ9.A_wFpmWjQ0imG7TTuOgJLOuCxyfs90OxvAvGswCzGOw
+
+{
+    "movie_id": "6638975c7819f335c6a69b9d"
+}
+
+###
+
+GET http://localhost:4000/rentals
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhlY3RvcjEyM0BnbWFpbC5jb20iLCJfaWQiOiI2NjQ4ZjliMzc4NTdlYTk0OTFmOGM0M2YiLCJyb2xlIjoidXNlciIsImlhdCI6MTcxNjMxNjU3NX0.ozi9tp87TRoEjPJtlXOw-gMsiPI5F0C9cVG8E-nGEHU
+
+
+###
+
+POST http://localhost:4000/users/signup
+Content-Type: application/json
+
+{
+    "email": "user@gmail.com",
+    "password": "userpwd"
+}
+
+### 
+
+DELETE http://localhost:4000/users/6644edc27e9a8e96d561bac5
+
+###
+POST http://localhost:4000/users/login
+Content-Type: application/json
+
+{
+    "email": "hector123@gmail.com",
+    "password": "1234567"
+}
