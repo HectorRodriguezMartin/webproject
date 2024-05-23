@@ -5,28 +5,7 @@ const mongoose = require('mongoose');
 const Movie = require("../models/movie");
 const cors = require('cors');
 
-const multer = require("multer");
-const path = require('path');
 const authCheck = require("../middleware/authenticationcheck");
-
-const storage = multer.diskStorage({
-    destination: function(req, file, callback) {
-        callback(null, "./uploads")
-    },
-    filename: function(req, file, cb){
-        cb(null, Date.now() + path.extname(file.originalname))
-    }
-});
-
-const fileFilter = (req, file, cb) =>{
-    if(file.mimetype == "image/png" || file.mimetype == "image/jpeg"){
-        cb(null, true);
-    } else{
-        cb(new Error("file type is not accepted"), false);
-    }
-};
-
-const upload = multer({storage : storage, fileFilter : fileFilter});
 
 router.use(cors());
 
@@ -52,7 +31,7 @@ router.get('/:id', getMovie, (req, res)=>{
     res.send(res.movie)
 });
 
-router.post('/', authCheck, upload.single("moviePoster"), async (req, res)=>{
+router.post('/', authCheck, async (req, res)=>{
     
     const movie = new Movie({
         title: req.body.title,
@@ -61,7 +40,7 @@ router.post('/', authCheck, upload.single("moviePoster"), async (req, res)=>{
         country: req.body.country,
         duration: req.body.duration,
         genre: req.body.genre,
-        moviePoster: req.file.path
+        moviePoster: req.body.moviePoster
     })
     try{
         const newMovie = await movie.save();
@@ -91,6 +70,9 @@ router.put('/:id', authCheck, getMovie, async (req, res)=>{
     }
     if(req.body.genre != null){
         res.movie.genre = req.body.genre;
+    }
+    if(req.body.moviePoster != null){
+        res.movie.moviePoster = req.body.moviePoster;
     }
     try{
         const updatedMovie = await res.movie.save();
