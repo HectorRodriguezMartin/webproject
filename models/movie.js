@@ -6,7 +6,8 @@ const movieSchema = new mongoose.Schema({
         required: true,
     },
     director: {
-        type: String
+        type: String,
+        required: true,
     },
     year: {
         type: Number,
@@ -17,13 +18,13 @@ const movieSchema = new mongoose.Schema({
     },
     duration: {
         type: Number,
-        required: true
     },
     genre: {
         type: String
     },
     moviePoster: {
         type: String,
+        required: true
     }
 });
 
