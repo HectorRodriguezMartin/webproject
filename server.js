@@ -2,6 +2,7 @@ require("dotenv").config();
 const functions = require("firebase-functions");
 
 const express = require("express");
+const sslRedirect = require('heroku-ssl-redirect');
 const app = express();
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
@@ -12,6 +13,7 @@ mongoose.connect(process.env.MONGO_URL).catch(err => {
     console.log(err);
 });
 
+app.use(sslRedirect());
 app.use(cors({
     origin: 'https://apimovies-30d7a75d93fe.herokuapp.com',
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
