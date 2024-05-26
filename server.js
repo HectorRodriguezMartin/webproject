@@ -30,8 +30,9 @@ app.use("/movies", moviesRouter);
 app.use("/rentals", rentalsRouter);
 app.use("/users", userRouter);
 
-app.listen(process.env.PORT, '0.0.0.0' , () => {
-    console.log(`Server listens at http://localhost:${process.env.PORT}`);
+const PORT = process.env.PORT || 4000;
+app.listen(PORT, () => {
+    console.log(`Server listens at http://localhost:${PORT}`);
 });
 
 exports.api = functions.https.onRequest(app);
