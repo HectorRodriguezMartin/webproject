@@ -4,7 +4,6 @@ const mongoose = require('mongoose');
 
 const Movie = require("../models/movie");
 const cors = require('cors');
-
 const authCheck = require("../middleware/authenticationcheck");
 
 router.use(cors());

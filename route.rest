@@ -4,15 +4,16 @@ GET http://localhost:4000/movies
 
 POST http://localhost:4000/movies
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhlY3RvcjEyM0BnbWFpbC5jb20iLCJfaWQiOiI2NjQ4ZjliMzc4NTdlYTk0OTFmOGM0M2YiLCJyb2xlIjoidXNlciIsImlhdCI6MTcxNjExOTcxMH0.cXvM6yRPWqNl2RU7_24nDLjCiX-nra5oGUOEyzl8Ebw
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsIl9pZCI6IjY2NDlkNWIyMGE3NTcyMzM2NGMyYzQzNiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNjY2NzczOX0.lmh9Unh-pj1ZqRHgqQVTEBBf92uoHomypT__5ZpTMRQ
 
 {
-    "title": "Pajaros",
-    "director": "Héctor Rodríguez Martín",
-    "year": 2017,
-    "country": "Spain",
-    "duration": 18,
-    "genre": "suspense"
+    "title": "Posledice",
+    "director": "Darko Stante",
+    "year": 2018,
+    "country": "Slovenia",
+    "duration": 95,
+    "genre": "Drama",
+    "moviePoster": "https://pics.filmaffinity.com/posledice-399573244-mmed.jpg"
 }
 
 ###
@@ -68,6 +69,6 @@ POST http://localhost:4000/users/login
 Content-Type: application/json
 
 {
-    "email": "hector123@gmail.com",
-    "password": "1234567"
+    "email": "admin@gmail.com",
+    "password": "adminpw"
 }
