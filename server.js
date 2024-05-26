@@ -30,6 +30,11 @@ app.use("/movies", moviesRouter);
 app.use("/rentals", rentalsRouter);
 app.use("/users", userRouter);
 
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).send('ERROR!');
+});
+
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {
     console.log(`Server listens at http://localhost:${PORT}`);
